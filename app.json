@@ -7,6 +7,7 @@
     "pages/notice/index",
     "pages/notice/show",
     "pages/category/category",
+    "pages/store-address/store-address",
     "pages/goods/list",
     "pages/goods/list-vop",
     "pages/goods/fav",

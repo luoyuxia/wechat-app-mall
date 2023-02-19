@@ -52,6 +52,20 @@ page {
   color: #666;
 }
 
+.shop-and-buy {
+  display: flex;
+  margin-top: 32rpx;
+  margin-left: 32rpx;
+  margin-bottom: 32rpx;
+}
+.shop-info  {
+  width: 35%;
+}
+
+.buy-info {
+  flex-grow: 1;
+}
+
 .llargada{
   width: 590rpx!important;
 }

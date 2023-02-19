@@ -42,6 +42,16 @@ Page({
       url: '/pages/cms/list?categoryId=' + category.id,
     })
   },
+  
+  buyTypeClick(e) {
+    console.log(e)
+    wx.setStorageSync('_buyType', e.currentTarget.dataset.id)
+    console.log("SD: " + wx.getStorageSync('_buyType'))
+    wx.switchTab({
+      url: '/pages/category/category',
+    })
+  },
+
   toDetailsTap: function(e) {
     console.log(e);
     const id = e.currentTarget.dataset.id
@@ -119,8 +129,8 @@ Page({
       }
     })
     this.initBanners()
-    this.categories()
-    this.cmsCategories()
+  //  this.categories()
+  //  this.cmsCategories()
     // https://www.yuque.com/apifm/nu0f75/wg5t98
     WXAPI.goodsv2({
       recommendStatus: 1

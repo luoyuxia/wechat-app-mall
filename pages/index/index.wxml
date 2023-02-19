@@ -61,20 +61,39 @@ module.exports = {
 </view>
 <view class="category-container">
   <view class="category-box">
-    <view class="category-list" wx:for="{{categories}}" wx:key="id">
+  <view class="category-list">
+    <view class="category-column" bindtap="buyTypeClick" data-id="0">
+    <image mode="aspectFill" class="category-imgbox" src="/images/icon/pick-up.svg"></image>
+    <view class="category-title">自取</view>
+    </view>
+  </view>
+  <view class="category-list">
+    <view class="category-column" bindtap="buyTypeClick" data-id="1">
+    <image mode="aspectFill" class="category-imgbox" src="/images/icon/take-out.svg"></image>
+        <view class="category-title">同城跑腿</view>
+    </view>
+  </view>
+  <view class="category-list">
+    <view class="category-column" bindtap="buyTypeClick" data-id="2">
+    <image mode="aspectFill" class="category-imgbox" src="/images/icon/delivery.svg"></image>
+        <view class="category-title">顺丰邮寄</view>
+    </view>
+  </view>
+  
+    <!-- <view class="category-list" wx:for="{{categories}}" wx:key="id">
       <view class="category-column" bindtap="tabClick"
         data-id="{{item.id}}">
         <image mode="aspectFill" class="category-imgbox" src="{{item.icon}}"></image>
-        <view class="category-title">{{item.name}}</view>
+        <view class="category-title">自取</view>
       </view>
-    </view>
-    <view class="category-list" wx:for="{{cmsCategories}}" wx:key="id">
+    </view> -->
+    <!-- <view class="category-list" wx:for="{{cmsCategories}}" wx:key="id">
       <view class="category-column" bindtap="tabClickCms"
         data-idx="{{ index }}">
         <image mode="aspectFill" class="category-imgbox" src="{{item.icon}}"></image>
         <view class="category-title">{{item.name}}</view>
       </view>
-    </view>
+    </view> -->
   </view>
 </view>
 <view class="notice-box" wx:if="{{noticeList}}">

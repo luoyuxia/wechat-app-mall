@@ -170,7 +170,8 @@
 }
 
 .category-list {
-  width: 140rpx;
+  width: 220rpx;
+  height: 220rpx;
   text-align: center;
   display: inline-block;
   overflow: hidden;
@@ -178,17 +179,18 @@
 
 .category-column {
   width: 100%;
-  margin-top: 20rpx;
+  margin-top: 40rpx;
   overflow: hidden;
 }
 
 .category-imgbox {
-  width: 100rpx;
+  width: 120rpx;
   height: 100rpx;
 }
 
 .category-title {
-  font-size: 24rpx;
+  font-size: 35rpx;
+  margin-right: 10rpx;
   text-align: center;
 }
 

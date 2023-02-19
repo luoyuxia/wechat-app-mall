@@ -1,6 +1,32 @@
-<van-search value="{{ name }}" placeholder="请输入搜索关键词" shape="round" bind:search="bindconfirm" use-right-icon-slot>
+<!-- <van-search value="{{ name }}" placeholder="请输入搜索关键词" shape="round" bind:search="bindconfirm" use-right-icon-slot>
   <van-icon slot="right-icon" name="scan" bind:click="searchscan" />
-</van-search>
+</van-search> -->
+<view class="shop-and-buy">
+<view class="shop-info" bindtap="onShopInfo">
+<view class="shop-name">
+  siyi 面包
+</view>
+<view  class="shop-distance" style="font-size: 20rpx;">
+  距您 {{distance}}
+</view>
+</view>
+<view class="buy-info" style="padding-top: 10rpx;">
+  <radio-group bindchange="buyTypeChange">
+    <label class="radio-label">
+      <radio value="0" checked="{{buyType == 0}}"> </radio>
+      自取
+    </label>
+    <label class="radio-label">
+      <radio value="1" checked="{{buyType == 1}}"> </radio>
+      跑腿
+    </label>
+    <label class="radio-label">
+      <radio value="2" checked="{{buyType == 2}}"> </radio>
+      邮寄
+    </label>
+  </radio-group>
+</view>
+</view>
 <view class="main">
   <scroll-view class="category-container" scroll-y="true" scroll-with-animation="true" scroll-into-view="{{ aaa }}">
     <van-sidebar custom-class="sidebar-l" active-key="{{ activeCategory }}">

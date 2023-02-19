@@ -43,39 +43,61 @@ function wxpay(type, money, orderId, redirectUrl, data, content) {
     postData.nextAction = JSON.stringify(postData.nextAction);  
   }
   const url = wx.getStorageSync('wxpay_api_url')
-  WXAPI.payVariableUrl(url ? url : '/pay/wx/wxapp', postData).then(function (res) {
-    if (res.code == 0) {
-      // 发起支付
-      wx.requestPayment({
-        timeStamp: res.data.timeStamp,
-        nonceStr: res.data.nonceStr,
-        package: res.data.package,
-        signType: res.data.signType,
-        paySign: res.data.paySign,
-        fail: function (aaa) {
-          console.error(aaa)
-          wx.showToast({
-            title: '支付失败:' + aaa
-          })
-        },
-        success: function () {
-          // 提示支付成功
-          wx.showToast({
-            title: '支付成功'
-          })
-          wx.redirectTo({
-            url: redirectUrl
-          });
-        }
-      })
-    } else {
-      wx.showModal({
-        title: '出错了',
-        content: JSON.stringify(res),
-        showCancel: false
-      })
-    }
-  })
+
+  // WXAPI.request('/user/apiExtOrder/pay/offline', false, 'post', 
+  // {
+  //   id: 1749402
+  // }
+  // ).then(function (res) {
+  //   console.log(res)
+  // })
+// const token = wx.getStorageSync('token');
+//   WXAPI.request('/order/success', true, 'post',  {
+//     token,
+//     orderId
+//   })
+//   .then(function (res) {
+//     console.log(res)
+//   })
+  WXAPI.orderDelivery(wx.getStorageSync('token'), orderId)
+  .then(function(res) {
+    console.log(res)
+  });
+
+
+  // WXAPI.payVariableUrl(url ? url : '/pay/wx/wxapp', postData).then(function (res) {
+  //   if (res.code == 0) {
+  //     // 发起支付
+  //     wx.requestPayment({
+  //       timeStamp: res.data.timeStamp,
+  //       nonceStr: res.data.nonceStr,
+  //       package: res.data.package,
+  //       signType: res.data.signType,
+  //       paySign: res.data.paySign,
+  //       fail: function (aaa) {
+  //         console.error(aaa)
+  //         wx.showToast({
+  //           title: '支付失败:' + aaa
+  //         })
+  //       },
+  //       success: function () {
+  //         // 提示支付成功
+  //         wx.showToast({
+  //           title: '支付成功'
+  //         })
+  //         wx.redirectTo({
+  //           url: redirectUrl
+  //         });
+  //       }
+  //     })
+  //   } else {
+  //     wx.showModal({
+  //       title: '出错了',
+  //       content: JSON.stringify(res),
+  //       showCancel: false
+  //     })
+  //   }
+  // })
 }
 
 module.exports = {
